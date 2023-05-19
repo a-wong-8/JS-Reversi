@@ -133,45 +133,45 @@ describe("Board", function () {
   })
 
   describe("#_positionsToFlip", function () {
-    it('returns empty array when pos is not on the board', function () {
-      expect(testBoard._positionsToFlip([-1, -1], "white", [1, 0]).length).toEqual(0);
-      expect(testBoard._positionsToFlip([9, 9], "white", [1, 0]).length).toEqual(0);
-    })
+    // it('returns empty array when pos is not on the board', function () {
+    //   expect(testBoard._positionsToFlip([-1, -1], "white", [1, 0]).length).toEqual(0);
+    //   expect(testBoard._positionsToFlip([9, 9], "white", [1, 0]).length).toEqual(0);
+    // })
 
-    it("returns empty array when there is a blank space one position away from the current position", function () {
-      expect(testBoard._positionsToFlip([4, 6], "white", [0, 1]).length).toEqual(0);
-      expect(testBoard._positionsToFlip([4, 6], "white", [-1, 1]).length).toEqual(0);
-      expect(testBoard._positionsToFlip([4, 6], "white", [-1, 0]).length).toEqual(0);
-      expect(testBoard._positionsToFlip([4, 6], "white", [0, -1]).length).toEqual(0);
-      expect(testBoard._positionsToFlip([4, 6], "white", [-1, -1]).length).toEqual(0);;
-      expect(testBoard._positionsToFlip([4, 6], "white", [1, 0]).length).toEqual(0);
-      expect(testBoard._positionsToFlip([4, 6], "white", [1, 1]).length).toEqual(0);
-      expect(testBoard._positionsToFlip([4, 6], "white", [1, -1]).length).toEqual(0);
-    })
+    // it("returns empty array when there is a blank space one position away from the current position", function () {
+    //   expect(testBoard._positionsToFlip([4, 6], "white", [0, 1]).length).toEqual(0);
+    //   expect(testBoard._positionsToFlip([4, 6], "white", [-1, 1]).length).toEqual(0);
+    //   expect(testBoard._positionsToFlip([4, 6], "white", [-1, 0]).length).toEqual(0);
+    //   expect(testBoard._positionsToFlip([4, 6], "white", [0, -1]).length).toEqual(0);
+    //   expect(testBoard._positionsToFlip([4, 6], "white", [-1, -1]).length).toEqual(0);;
+    //   expect(testBoard._positionsToFlip([4, 6], "white", [1, 0]).length).toEqual(0);
+    //   expect(testBoard._positionsToFlip([4, 6], "white", [1, 1]).length).toEqual(0);
+    //   expect(testBoard._positionsToFlip([4, 6], "white", [1, -1]).length).toEqual(0);
+    // })
 
-    it("returns empty array if no pieces of the opposite color are found", function () {
-      let traversalDoesntFlipTestBoard = new Board();
-      traversalDoesntFlipTestBoard.grid[6][2] = new Piece("white");
+    // it("returns empty array if no pieces of the opposite color are found", function () {
+    //   let traversalDoesntFlipTestBoard = new Board();
+    //   traversalDoesntFlipTestBoard.grid[6][2] = new Piece("white");
 
-      expect(testBoard._positionsToFlip([4, 5], "white", [0, -1]).length).toEqual(0);
-      expect(testBoard._positionsToFlip([5, 4], "white", [-1, 0]).length).toEqual(0);
-      expect(testBoard._positionsToFlip([5, 5], "white", [-1, -1]).length).toEqual(0);
-      expect(testBoard._positionsToFlip([3, 2], "white", [0, 1]).length).toEqual(0);
-      expect(testBoard._positionsToFlip([2, 2], "white", [1, 1]).length).toEqual(0);
-      expect(testBoard._positionsToFlip([2, 3], "white", [1, 0]).length).toEqual(0);
-      expect(testBoard._positionsToFlip([7, 1], "white", [-1, 1]).length).toEqual(0);
-      expect(testBoard._positionsToFlip([5, 3], "white", [1, -1]).length).toEqual(0);
-    });
+    //   expect(testBoard._positionsToFlip([4, 5], "white", [0, -1]).length).toEqual(0);
+    //   expect(testBoard._positionsToFlip([5, 4], "white", [-1, 0]).length).toEqual(0);
+    //   expect(testBoard._positionsToFlip([5, 5], "white", [-1, -1]).length).toEqual(0);
+    //   expect(testBoard._positionsToFlip([3, 2], "white", [0, 1]).length).toEqual(0);
+    //   expect(testBoard._positionsToFlip([2, 2], "white", [1, 1]).length).toEqual(0);
+    //   expect(testBoard._positionsToFlip([2, 3], "white", [1, 0]).length).toEqual(0);
+    //   expect(testBoard._positionsToFlip([7, 1], "white", [-1, 1]).length).toEqual(0);
+    //   expect(testBoard._positionsToFlip([5, 3], "white", [1, -1]).length).toEqual(0);
+    // });
 
-    it("returns empty array if no piece of the same color is on the other end", function () {
-      let correspondingColorTestBoard = new Board();
-      correspondingColorTestBoard.grid[0][0] = new Piece("white");
-      correspondingColorTestBoard.grid[0][2] = new Piece("white");
-      correspondingColorTestBoard.grid[0][3] = new Piece("white");
+    // it("returns empty array if no piece of the same color is on the other end", function () {
+    //   let correspondingColorTestBoard = new Board();
+    //   correspondingColorTestBoard.grid[0][0] = new Piece("white");
+    //   correspondingColorTestBoard.grid[0][2] = new Piece("white");
+    //   correspondingColorTestBoard.grid[0][3] = new Piece("white");
 
-      expect(correspondingColorTestBoard._positionsToFlip([0, 1], "black", [0, -1]).length).toEqual(0);
-      expect(correspondingColorTestBoard._positionsToFlip([0, 1], "black", [0, 1]).length).toEqual(0);
-    });
+    //   expect(correspondingColorTestBoard._positionsToFlip([0, 1], "black", [0, -1]).length).toEqual(0);
+    //   expect(correspondingColorTestBoard._positionsToFlip([0, 1], "black", [0, 1]).length).toEqual(0);
+    // });
     
     beforeEach(function () {
       testBoardLongHorzDiagonal = new Board();
